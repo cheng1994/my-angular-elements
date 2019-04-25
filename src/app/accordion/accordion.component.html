@@ -1,0 +1,10 @@
+<div class="accordion">
+  <header class="accordion__header" (click)="toggleList()">
+    <slot><div class="accordion__title">Default Header <span class="fas fa-caret-down"></span></div></slot>
+  </header>
+  <ul class="accordion__list" [ngClass]="{'hidden':state.showList}">
+    <li class="accordion__item" *ngFor="let item of listItems" (click)="clickedItem(item)">
+      {{item.label}}
+    </li>
+  </ul>
+</div>

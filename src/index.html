@@ -1,14 +1,49 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Elements</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<head>
+  <style>
+    .title {
+      margin: 0;
+      display: flex;
+    }
+
+    .title .fas {
+      margin-left: auto;
+    }
+
+    my-accordion {
+      --my-max-width: 400px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
-<body>
-  <app-root></app-root>
-</body>
-</html>
+<my-accordion>
+  <h2 class="title">Items <span slot="icon" class="fas fa-caret-down"></span></h2>
+</my-accordion>
+
+<script>
+  const object = [
+    {
+      label: 'Spiderman',
+      publisher: 'Marvel'
+    },
+    {
+      label: 'Batman',
+      publisher: 'DC'
+    },
+    {
+      label: 'Saga',
+      publisher: 'Image Comics'
+    },
+    {
+      label: 'Hellboy',
+      publisher: 'Dark Horse Comics'
+    }
+  ];
+
+  const el = document.querySelector('my-accordion');
+  el.listItems = object;
+  el.addEventListener('selectedItem', (event) => {
+    console.log(event);
+  })
+</script>

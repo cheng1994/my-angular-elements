@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Here I include the CSS and JS for my custom elements -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="./elements/styles.css">
+    <script src="./elements/elements.js"></script>
+
+    <style>
+      .title {
+        margin: 0;
+        display: flex;
+      }
+
+      .title .fas {
+        margin-left: auto;
+      }
+
+      my-accordion {
+        --my-max-width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <my-accordion>
+      <h2 class="title">Comics <span slot="icon" class="fas fa-caret-down"></span></h2>
+    </my-accordion>
+    <script defer>
+      const object = [
+        {
+          label: 'Spiderman',
+          publisher: 'Marvel'
+        },
+        {
+          label: 'Batman',
+          publisher: 'DC'
+        },
+        {
+          label: 'Saga',
+          publisher: 'Image Comics'
+        },
+        {
+          label: 'Hellboy',
+          publisher: 'Dark Horse Comics'
+        }
+      ];
+
+      const el = document.querySelector('my-accordion');
+      el.listItems = object;
+      el.addEventListener('selectedItem', (event) => {
+        console.log(event);
+      })
+    </script>
+  </body>
+</html>
