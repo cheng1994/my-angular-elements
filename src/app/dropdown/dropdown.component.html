@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <header class="dropdown__header" (click)="toggleList()">
+    <slot name="title" *ngIf="!state.selectedItem; else selectedLabel">
+      <div class="dropdown__title">Default Header</div>
+    </slot>
+    <ng-template #selectedLabel><label>{{state.selectedItem.label}}</label></ng-template>
+    <slot name="icon"></slot>
+  </header>
+  <ul class="dropdown__list" [ngClass]="{'hidden': state.hideList}">
+    <li class="dropdown__item" *ngFor="let item of state.listItems" (click)="clickedItem(item)">
+      {{item.label}}
+    </li>
+  </ul>
+</div>

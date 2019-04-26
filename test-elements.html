@@ -16,15 +16,16 @@
         margin-left: auto;
       }
 
-      my-accordion {
+      my-dropdown {
         --my-max-width: 400px;
       }
     </style>
   </head>
   <body>
-    <my-accordion>
-      <h2 class="title">Comics <span slot="icon" class="fas fa-caret-down"></span></h2>
-    </my-accordion>
+    <my-dropdown>
+      <h2 slot="title" class="title">Comics</h2>
+      <span slot="icon" class="fas fa-caret-down"></span>
+    </my-dropdown>
     <script defer>
       const object = [
         {
@@ -45,7 +46,7 @@
         }
       ];
 
-      const el = document.querySelector('my-accordion');
+      const el = document.querySelector('my-dropdown');
       el.listItems = object;
       el.addEventListener('selectedItem', (event) => {
         console.log(event);

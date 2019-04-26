@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
-import { AccordionComponent } from './accordion/accordion.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
-    AccordionComponent
+    DropdownComponent
   ],
   imports: [
     BrowserModule
   ],
   entryComponents: [
-    AccordionComponent
+    DropdownComponent
   ]
 })
 export class AppModule {
@@ -21,7 +21,7 @@ export class AppModule {
   ngDoBootstrap() {
     // array of tuples containing component and html name to be used
     const elements: any[] = [
-      [AccordionComponent, 'my-accordion']
+      [DropdownComponent, 'my-dropdown']
     ];
 
     for(const [component, name] of elements) {

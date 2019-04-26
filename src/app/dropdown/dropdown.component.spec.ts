@@ -1,31 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AccordionComponent } from './accordion.component';
+import { DropdownComponent } from './dropdown.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('AccordionComponent', () => {
-  let component: AccordionComponent;
-  let fixture: ComponentFixture<AccordionComponent>;
+describe('DropdownComponent', () => {
+  let component: DropdownComponent;
+  let fixture: ComponentFixture<DropdownComponent>;
   let headerEl: DebugElement;
   let listEl: DebugElement;
 
-  // helper function to check if class exists
-  const hasClass = (element, cls) => {
-    debugger;
-    return element.classList.toString().indexOf(cls) !== -1;
-  };
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccordionComponent ]
+      declarations: [ DropdownComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccordionComponent);
+    fixture = TestBed.createComponent(DropdownComponent);
     component = fixture.componentInstance;
 
     headerEl = fixture.debugElement.query(By.css('.accordion__header'));
@@ -34,13 +27,13 @@ describe('AccordionComponent', () => {
   });
 
   describe('the list element', () =>{
-    it('should not show list', () => {
+    it('should not show', () => {
       const el = fixture.debugElement.query(By.css('.accordion__list'));
       expect(el.classes['hidden']).toBeTruthy();
     });
 
-    it('should show list', () => {
-      component.state.showList = false;
+    it('should show', () => {
+      component.toggleList();
       const el = fixture.debugElement.query(By.css('.accordion__list'));
       expect(el.classes['hidden']).toBeFalsy();
     });
